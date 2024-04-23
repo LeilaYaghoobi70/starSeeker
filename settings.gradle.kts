@@ -16,3 +16,6 @@ dependencyResolutionManagement {
 rootProject.name = "Star Seeker"
 include(":app")
 include(":navigation")
+
+include(":data-layers:data:remote")
+include(":data-layers:domain")

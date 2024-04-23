@@ -50,6 +50,9 @@ android {
 
 dependencies {
 
+    implementation(project(ProjectLib.domain))
+    implementation(project(ProjectLib.remote))
+
     implementation(Dependencies.AndroidX.core)
     implementation(Dependencies.AndroidX.lifecycle)
 
