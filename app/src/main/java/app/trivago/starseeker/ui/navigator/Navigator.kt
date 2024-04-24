@@ -1,6 +1,5 @@
 package app.trivago.starseeker.ui.navigator
 
-
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -9,28 +8,33 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import app.trivago.presenter.viewComponent.SearchScreen
-import app.trivago.presenter.viewComponent.UserDetailScreen
-import app.trivago.presenter.viewModel.SearchScreenViewModel
-import app.trivago.presenter.viewmodel.DetailScreenViewModel
+import detail.trivago.presenter.viewComponent.UserDetailScreen
+import detail.trivago.presenter.viewmodel.DetailScreenViewModel
+import search.trivago.domain.model.Character
+import search.trivago.presenter.viewComponent.SearchScreen
 
 @Composable
 fun Navigator(navHostController: NavHostController) {
     val actions = remember { Actions(navHostController) }
-    NavHost(navController = navHostController, startDestination = Destinations.SEARCH) {
+    NavHost(
+        navController = navHostController,
+        startDestination = Destinations.SEARCH,
+    ) {
         composable(route = Destinations.SEARCH) {
-            val viewModel: SearchScreenViewModel = hiltViewModel()
             SearchScreen(
-                searchScreenViewModel = viewModel,
-              //  navigateToUserDetail = actions.openUserDetailScreen
+                navigateToDetail = actions.navigateToDetail,
             )
         }
         composable(
             route = "${Destinations.DETAIL}/{${DestinationArgs.CHARACTER}}",
-            arguments = listOf(navArgument(DestinationArgs.CHARACTER) { type = NavType.StringType })
+            arguments =
+                listOf(
+                    navArgument(DestinationArgs.CHARACTER) {
+                        type = NavType.StringType
+                    },
+                ),
         ) {
             val viewModel: DetailScreenViewModel = hiltViewModel()
-
             UserDetailScreen(
                 detailScreenViewModel = viewModel,
             )
@@ -39,8 +43,7 @@ fun Navigator(navHostController: NavHostController) {
 }
 
 class Actions(private val navHostController: NavHostController) {
-
-    val openUserDetailScreen: (character: Character) -> Unit = {
+    val navigateToDetail: (character: Character) -> Unit = {
         navHostController.navigate("${Destinations.DETAIL}/$it")
     }
 

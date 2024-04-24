@@ -10,9 +10,7 @@ java {
 }
 
 dependencies {
-
     // hilt
     implementation(Dependencies.DI.hiltCore)
     kapt(Dependencies.DI.androidCompiler)
-
 }

@@ -26,7 +26,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
@@ -59,6 +59,7 @@ dependencies {
     implementation(project(ProjectLib.searchData))
     implementation(project(ProjectLib.searchDomain))
     implementation(project(ProjectLib.searchPresenter))
+    implementation(project(ProjectLib.design))
 
     implementation(project(ProjectLib.detailData))
     implementation(project(ProjectLib.detailDomain))
@@ -69,7 +70,7 @@ dependencies {
     implementation(Dependencies.AndroidX.core)
     implementation(Dependencies.AndroidX.lifecycle)
 
-    //Hilt
+    // Hilt
     implementation(Dependencies.DI.hiltCore)
     kapt(Dependencies.DI.androidCompiler)
     implementation(Dependencies.DI.androidHilt)
@@ -90,11 +91,10 @@ dependencies {
     implementation(Dependencies.NavHostVersion.navigationUi)
     implementation(Dependencies.NavHostVersion.navigationCompose)
 
-    //test
+    // test
     testImplementation(Dependencies.junit)
     androidTestImplementation(Dependencies.AndroidX.testExtJunit)
     androidTestImplementation(Dependencies.AndroidX.espresso)
     androidTestImplementation(platform(Dependencies.AndroidX.Compose.composeBom))
     androidTestImplementation(Dependencies.AndroidX.Compose.junitUiTest)
-
 }

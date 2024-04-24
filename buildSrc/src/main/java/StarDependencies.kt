@@ -1,7 +1,6 @@
 const val kotlinAndroid: String = "android"
 
 object Config {
-
     object Android {
         val namespace = "app.trivago.starseeker"
         val applicationId = "app.trivago.starseeker"
@@ -21,7 +20,7 @@ object Config {
 object Dependencies {
     private const val jUnitVersion = "4.13.2"
 
-    const val junit = "junit:junit:${jUnitVersion}"
+    const val junit = "junit:junit:$jUnitVersion"
 
     object AndroidX {
         private object Version {
@@ -35,6 +34,8 @@ object Dependencies {
         const val core = "androidx.core:core-ktx:${Version.coreVersion}"
         const val lifecycle = "androidx.lifecycle:lifecycle-runtime-ktx:${Version.lifecycle}"
         const val testExtJunit = "androidx.test.ext:junit:${Version.testExtJunit}"
+        const val viewModelLifecycle =
+            "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.lifecycle}"
 
         const val espresso = "androidx.test.espresso:espresso-core:${Version.espresso}"
 
@@ -50,7 +51,6 @@ object Dependencies {
             const val testManifest = "androidx.compose.ui:ui-test-manifest"
             const val junitUiTest = "androidx.compose.ui:ui-test-junit4"
         }
-
     }
 
     object Network {
@@ -59,7 +59,6 @@ object Dependencies {
             const val retrofit: String = "2.11.0"
             const val gsonConvertor: String = "2.0.2"
             const val gson: String = "2.10.1"
-
         }
 
         const val okhttp: String = "com.squareup.okhttp3:okhttp:${Version.okhttp}"
@@ -94,7 +93,6 @@ object Dependencies {
             "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Version.coroutines}"
         const val android: String =
             "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Version.coroutines}"
-
     }
 
     object NavHostVersion {
@@ -122,4 +120,5 @@ object ProjectLib {
     const val detailPresenter = ":feature:detail:presenter"
 
     const val network = ":network"
+    const val design = ":design"
 }

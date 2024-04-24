@@ -20,7 +20,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
@@ -36,16 +36,18 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.2"
+        kotlinCompilerExtensionVersion = Config.Version.kotlinCompilerExtensionVersion
     }
 }
 
 dependencies {
 
     implementation(project(ProjectLib.searchDomain))
+    implementation(project(ProjectLib.design))
 
     implementation(Dependencies.AndroidX.core)
     implementation(Dependencies.AndroidX.lifecycle)
+    implementation(Dependencies.AndroidX.viewModelLifecycle)
 
     // compose
     implementation(Dependencies.AndroidX.Compose.activityCompose)
@@ -60,7 +62,7 @@ dependencies {
     implementation(Dependencies.Network.gson)
     implementation(Dependencies.Network.retrofit)
 
-    //test
+    // test
     testImplementation(Dependencies.junit)
     androidTestImplementation(Dependencies.AndroidX.testExtJunit)
     androidTestImplementation(Dependencies.AndroidX.espresso)
@@ -71,4 +73,5 @@ dependencies {
     implementation(Dependencies.DI.hiltCore)
     implementation(Dependencies.DI.androidHilt)
     kapt(Dependencies.DI.androidCompiler)
+    implementation(Dependencies.DI.navigationCompose)
 }

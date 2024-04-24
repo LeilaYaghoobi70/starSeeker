@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_medium">8dp</dimen>
+
+    <dimen name="radius_small">4dp</dimen>
+
+    <dimen name="item_height">45dp</dimen>
+
+    <dimen name="loading_size">48dp</dimen>
+    <dimen name="loading_stroke_width">4dp</dimen>
+</resources>
