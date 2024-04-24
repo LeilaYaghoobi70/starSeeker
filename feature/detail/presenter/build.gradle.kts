@@ -2,6 +2,7 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -20,7 +21,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
@@ -31,12 +32,17 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString()
     }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = Config.Version.kotlinCompilerExtensionVersion
+    }
 }
 
 dependencies {
 
     implementation(project(ProjectLib.detailDomain))
-
 
     implementation(Dependencies.AndroidX.core)
     implementation(Dependencies.AndroidX.lifecycle)
@@ -54,7 +60,7 @@ dependencies {
     implementation(Dependencies.Network.gson)
     implementation(Dependencies.Network.retrofit)
 
-    //test
+    // test
     testImplementation(Dependencies.junit)
     androidTestImplementation(Dependencies.AndroidX.testExtJunit)
     androidTestImplementation(Dependencies.AndroidX.espresso)

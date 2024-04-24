@@ -16,7 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import app.trivago.design.theme.HintColor
 import app.trivago.presenter.R
-import search.trivago.domain.model.Character
+import search.trivago.presenter.model.Character
 
 @Composable
 fun CharacterBody(

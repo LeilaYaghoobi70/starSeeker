@@ -10,9 +10,9 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
-import search.trivago.domain.model.Character
 import search.trivago.presenter.contract.SearchScreenActions
 import search.trivago.presenter.contract.SearchScreenViewState
+import search.trivago.presenter.model.Character
 import search.trivago.presenter.viewModel.SearchScreenViewModel
 
 @Composable

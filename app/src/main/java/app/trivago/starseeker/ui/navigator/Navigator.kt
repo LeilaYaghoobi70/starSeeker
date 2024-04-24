@@ -1,18 +1,20 @@
 package app.trivago.starseeker.ui.navigator
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.navArgument
-import detail.trivago.presenter.viewComponent.UserDetailScreen
+import app.trivago.starseeker.mapper.searchToDetail
+import detail.trivago.presenter.model.Character
+import detail.trivago.presenter.viewComponent.CharacterDetailScreen
 import detail.trivago.presenter.viewmodel.DetailScreenViewModel
-import search.trivago.domain.model.Character
 import search.trivago.presenter.viewComponent.SearchScreen
 
+@RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
 fun Navigator(navHostController: NavHostController) {
     val actions = remember { Actions(navHostController) }
@@ -22,21 +24,26 @@ fun Navigator(navHostController: NavHostController) {
     ) {
         composable(route = Destinations.SEARCH) {
             SearchScreen(
-                navigateToDetail = actions.navigateToDetail,
+                navigateToDetail = {
+                    actions.navigateToDetail(
+                        it.searchToDetail(),
+                    )
+                },
             )
         }
         composable(
-            route = "${Destinations.DETAIL}/{${DestinationArgs.CHARACTER}}",
-            arguments =
-                listOf(
-                    navArgument(DestinationArgs.CHARACTER) {
-                        type = NavType.StringType
-                    },
-                ),
+            route = Destinations.DETAIL,
         ) {
             val viewModel: DetailScreenViewModel = hiltViewModel()
-            UserDetailScreen(
+            val character =
+                navHostController.previousBackStackEntry?.arguments?.getParcelable(
+                    DestinationArgs.CHARACTER,
+                    Character::class.java,
+                )
+                    ?: return@composable
+            CharacterDetailScreen(
                 detailScreenViewModel = viewModel,
+                character = character,
             )
         }
     }
@@ -44,8 +51,9 @@ fun Navigator(navHostController: NavHostController) {
 
 class Actions(private val navHostController: NavHostController) {
     val navigateToDetail: (character: Character) -> Unit = {
-        navHostController.navigate("${Destinations.DETAIL}/$it")
-    }
+        navHostController.currentBackStackEntry
+            ?.arguments?.putParcelable(DestinationArgs.CHARACTER, it)
 
-    val navigateBack: () -> Unit = { navHostController.popBackStack() }
+        navHostController.navigate(Destinations.DETAIL)
+    }
 }

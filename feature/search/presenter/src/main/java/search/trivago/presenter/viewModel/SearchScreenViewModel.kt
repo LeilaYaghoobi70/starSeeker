@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import search.trivago.domain.usecase.SearchUseCase
 import search.trivago.presenter.contract.SearchScreenViewState
+import search.trivago.presenter.model.toPresenterCharacter
 import javax.inject.Inject
 
 @HiltViewModel
@@ -63,7 +64,10 @@ class SearchScreenViewModel
                     viewModelState.update { searchStateScreen ->
                         searchStateScreen.copy(showLoading = true)
                     }
-                    val characters = searchUseCase.execute(query = query)
+                    val characters =
+                        searchUseCase.execute(query = query)?.map {
+                            it.toPresenterCharacter()
+                        }
                     viewModelState.update { searchStateScreen ->
                         searchStateScreen.copy(
                             characters = characters,

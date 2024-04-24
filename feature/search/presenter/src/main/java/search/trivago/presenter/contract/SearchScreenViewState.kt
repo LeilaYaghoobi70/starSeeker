@@ -1,6 +1,6 @@
 package search.trivago.presenter.contract
 
-import search.trivago.domain.model.Character
+import search.trivago.presenter.model.Character
 
 data class SearchScreenViewState(
     val characters: List<Character>? = null,
