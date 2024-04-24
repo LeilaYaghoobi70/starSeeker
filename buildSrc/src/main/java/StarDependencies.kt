@@ -19,19 +19,19 @@ object Config {
 }
 
 object Dependencies {
+    private const val jUnitVersion = "4.13.2"
 
-    private object Version {
-        const val coreVersion = "1.12.0"
-        const val lifecycle = "2.7.0"
-        const val activityCompose = "1.8.2"
-        const val jUnit = "4.13.2"
-        const val testExtJunit = "1.1.5"
-        const val espresso = "3.5.1"
-    }
-
-    const val junit = "junit:junit:${Version.jUnit}"
+    const val junit = "junit:junit:${jUnitVersion}"
 
     object AndroidX {
+        private object Version {
+            const val coreVersion = "1.12.0"
+            const val lifecycle = "2.7.0"
+            const val activityCompose = "1.8.2"
+            const val testExtJunit = "1.1.5"
+            const val espresso = "3.5.1"
+        }
+
         const val core = "androidx.core:core-ktx:${Version.coreVersion}"
         const val lifecycle = "androidx.lifecycle:lifecycle-runtime-ktx:${Version.lifecycle}"
         const val testExtJunit = "androidx.test.ext:junit:${Version.testExtJunit}"
@@ -73,16 +73,20 @@ object Dependencies {
 
     object DI {
         private object Version {
-            const val hilt = "2.51.1"
+            const val hilt = "2.50"
+            const val navigationCompose = "1.2.0"
+            const val hiltCompiler = "1.0.0"
         }
 
         const val androidHilt = "com.google.dagger:hilt-android:${Version.hilt}"
         const val androidCompiler = "com.google.dagger:hilt-android-compiler:${Version.hilt}"
         const val hiltCore: String = "com.google.dagger:hilt-core:${Version.hilt}"
+        const val navigationCompose =
+            "androidx.hilt:hilt-navigation-compose:${Version.navigationCompose}"
     }
 
     object Coroutines {
-        object Version {
+        private object Version {
             const val coroutines: String = "1.8.0"
         }
 
@@ -92,10 +96,30 @@ object Dependencies {
             "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Version.coroutines}"
 
     }
+
+    object NavHostVersion {
+        object Version {
+            const val nav_version: String = "2.7.7"
+        }
+
+        const val navigationFragment =
+            "androidx.navigation:navigation-fragment-ktx:${Version.nav_version}"
+        const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Version.nav_version}"
+        const val navigationCompose =
+            "androidx.navigation:navigation-compose:${Version.nav_version}"
+    }
 }
 
 object ProjectLib {
     const val app = ":app"
-    const val domain = ":data-layers:domain"
-    const val remote = ":data-layers:data:remote"
+
+    const val searchData = ":feature:search:data"
+    const val searchDomain = ":feature:search:domain"
+    const val searchPresenter = ":feature:search:presenter"
+
+    const val detailData = ":feature:detail:data"
+    const val detailDomain = ":feature:detail:domain"
+    const val detailPresenter = ":feature:detail:presenter"
+
+    const val network = ":network"
 }

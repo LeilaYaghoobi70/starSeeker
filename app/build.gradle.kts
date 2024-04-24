@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -47,24 +49,46 @@ android {
         }
     }
 }
+kapt {
+    correctErrorTypes = true
+}
 
 dependencies {
 
-    implementation(project(ProjectLib.domain))
-    implementation(project(ProjectLib.remote))
+    // project
+    implementation(project(ProjectLib.searchData))
+    implementation(project(ProjectLib.searchDomain))
+    implementation(project(ProjectLib.searchPresenter))
+
+    implementation(project(ProjectLib.detailData))
+    implementation(project(ProjectLib.detailDomain))
+    implementation(project(ProjectLib.detailPresenter))
+
+    implementation(project(ProjectLib.network))
 
     implementation(Dependencies.AndroidX.core)
     implementation(Dependencies.AndroidX.lifecycle)
 
+    //Hilt
+    implementation(Dependencies.DI.hiltCore)
+    kapt(Dependencies.DI.androidCompiler)
+    implementation(Dependencies.DI.androidHilt)
+    implementation(Dependencies.DI.navigationCompose)
+
+    // compose
     implementation(Dependencies.AndroidX.Compose.activityCompose)
     implementation(platform(Dependencies.AndroidX.Compose.composeBom))
     implementation(Dependencies.AndroidX.Compose.ui)
     implementation(Dependencies.AndroidX.Compose.uiGraphics)
     implementation(Dependencies.AndroidX.Compose.preview)
     implementation(Dependencies.AndroidX.Compose.material3)
-
     debugImplementation(Dependencies.AndroidX.Compose.uiTooling)
     debugImplementation(Dependencies.AndroidX.Compose.testManifest)
+
+    // navigation
+    implementation(Dependencies.NavHostVersion.navigationFragment)
+    implementation(Dependencies.NavHostVersion.navigationUi)
+    implementation(Dependencies.NavHostVersion.navigationCompose)
 
     //test
     testImplementation(Dependencies.junit)

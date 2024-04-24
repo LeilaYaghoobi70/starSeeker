@@ -17,5 +17,10 @@ rootProject.name = "Star Seeker"
 include(":app")
 include(":navigation")
 
-include(":data-layers:data:remote")
-include(":data-layers:domain")
+include(":network")
+include(":feature:search:data")
+include(":feature:search:domain")
+include(":feature:search:presenter")
+include(":feature:detail:data")
+include(":feature:detail:domain")
+include(":feature:detail:presenter")
