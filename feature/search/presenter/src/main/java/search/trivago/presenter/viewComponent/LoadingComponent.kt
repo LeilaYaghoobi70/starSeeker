@@ -23,7 +23,7 @@ import app.trivago.design.theme.LoadingColorSeven
 import app.trivago.design.theme.LoadingColorSix
 import app.trivago.design.theme.LoadingColorThree
 import app.trivago.design.theme.LoadingColorTwo
-import app.trivago.presenter.R
+import app.trivago.design.R as designR
 
 @Composable
 fun FaceCaptureLoading() {
@@ -61,10 +61,10 @@ fun FaceCaptureLoading() {
     CircularProgressIndicator(
         modifier =
             Modifier
-                .size(size = dimensionResource(id = R.dimen.loading_size))
+                .size(size = dimensionResource(id = designR.dimen.loading_size))
                 .rotate(rotateAnimation)
                 .border(
-                    width = dimensionResource(id = R.dimen.loading_stroke_width),
+                    width = dimensionResource(id = designR.dimen.loading_stroke_width),
                     brush = Brush.sweepGradient(colors),
                     shape = CircleShape,
                 ),

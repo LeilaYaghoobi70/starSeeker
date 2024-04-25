@@ -15,11 +15,9 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object RemoteModule {
     @Provides
-    @Singleton
     fun provideGsonConverterFactory(): Converter.Factory = GsonConverterFactory.create()
 
     @Provides
-    @Singleton
     fun provideOkHttpClient(): OkHttpClient {
         return OkHttpClient.Builder()
             .connectTimeout(10, TimeUnit.SECONDS)

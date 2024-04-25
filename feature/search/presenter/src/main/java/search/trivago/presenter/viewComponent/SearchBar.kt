@@ -27,6 +27,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import app.trivago.design.theme.PlaceHolderColor
 import app.trivago.presenter.R
 import kotlinx.coroutines.delay
+import app.trivago.design.R as designR
 
 private const val WAITING_TIME: Long = 2000
 
@@ -49,7 +50,7 @@ fun SearchTextField(searchTermTyped: (String) -> Unit) {
                 unfocusedIndicatorColor = MaterialTheme.colorScheme.primary,
                 focusedIndicatorColor = MaterialTheme.colorScheme.primary,
             ),
-        shape = RoundedCornerShape(dimensionResource(id = R.dimen.radius_small)),
+        shape = RoundedCornerShape(dimensionResource(id = designR.dimen.radius_small)),
         leadingIcon = {
             Image(
                 painter = painterResource(id = R.drawable.ic_search),
@@ -60,15 +61,14 @@ fun SearchTextField(searchTermTyped: (String) -> Unit) {
         modifier =
             Modifier
                 .padding(
-                    top = dimensionResource(id = R.dimen.padding_medium),
+                    top = dimensionResource(id = designR.dimen.padding_medium),
                 )
                 .focusRequester(focusRequester)
                 .fillMaxWidth()
-                .padding(dimensionResource(id = R.dimen.padding_medium)),
+                .padding(dimensionResource(id = designR.dimen.padding_medium)),
     )
 
     LaunchedEffect(key1 = searchInputText, block = {
-        // showLoading(searchInputText.text)
         delay(WAITING_TIME)
         searchTermTyped(searchInputText.text)
     })

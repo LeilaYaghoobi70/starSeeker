@@ -15,8 +15,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import app.trivago.design.theme.HintColor
-import app.trivago.presenter.R
 import search.trivago.presenter.model.Character
+import app.trivago.design.R as designR
 
 @Composable
 fun CharacterBody(
@@ -42,13 +42,13 @@ private fun CharacterItem(
         modifier =
             Modifier
                 .fillMaxSize()
-                .padding(dimensionResource(R.dimen.padding_medium))
+                .padding(dimensionResource(designR.dimen.padding_medium))
                 .background(
                     color = HintColor,
-                    shape = RoundedCornerShape(dimensionResource(id = R.dimen.radius_small)),
+                    shape = RoundedCornerShape(dimensionResource(id = designR.dimen.radius_small)),
                 )
-                .padding(dimensionResource(R.dimen.padding_medium))
-                .height(dimensionResource(id = R.dimen.item_height))
+                .padding(dimensionResource(designR.dimen.padding_medium))
+                .height(dimensionResource(id = designR.dimen.item_height))
                 .clickable {
                     onClickItem.invoke(character)
                 },

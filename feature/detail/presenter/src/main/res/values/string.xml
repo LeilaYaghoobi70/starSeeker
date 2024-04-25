@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="character">character</string>
+    <string name="species">species</string>
+    <string name="film">film</string>
+
+    <string name="characterName">characterName</string>
+    <string name="birthYear">birthYear</string>
+    <string name="height">height</string>
+    <string name="population">population</string>
+
+    <string name="title">title</string>
+    <string name="description">description</string>
+
+    <string name="name">name</string>
+    <string name="language">language</string>
+    <string name="homeWorld">homeWorld</string>
+
+
+</resources>

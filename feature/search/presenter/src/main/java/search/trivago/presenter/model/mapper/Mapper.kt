@@ -1,8 +1,9 @@
-package search.trivago.presenter.model
+package search.trivago.presenter.model.mapper
 
+import search.trivago.presenter.model.Character
 import search.trivago.domain.model.Character as DomainCharacter
 
-fun DomainCharacter.toPresenterCharacter() =
+fun DomainCharacter.toPresenter() =
     Character(
         name = name,
         birthYear = birthYear,

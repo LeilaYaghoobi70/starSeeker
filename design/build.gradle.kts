@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "app.trivago.design"
-    compileSdk = 34
+    compileSdk = Config.Version.compileSdk
 
     defaultConfig {
-        minSdk = 24
+        minSdk = Config.Version.minSdk
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = Config.Android.testInstrumentationRunner
         consumerProguardFiles("consumer-rules.pro")
     }
 

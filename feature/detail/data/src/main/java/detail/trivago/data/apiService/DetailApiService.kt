@@ -1,6 +1,6 @@
 package detail.trivago.data.apiService
 
-import app.trivago.remote.model.FilmRemote
+import detail.trivago.data.model.FilmRemote
 import detail.trivago.data.model.PlanetRemote
 import detail.trivago.data.model.SpecieRemote
 import retrofit2.http.GET

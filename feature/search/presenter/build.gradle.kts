@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "app.trivago.presenter"
-    compileSdk = 34
+    compileSdk = Config.Version.compileSdk
 
     defaultConfig {
-        minSdk = 24
+        minSdk = Config.Version.minSdk
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = Config.Android.testInstrumentationRunner
         consumerProguardFiles("consumer-rules.pro")
     }
 
@@ -58,9 +58,6 @@ dependencies {
     implementation(Dependencies.AndroidX.Compose.material3)
     debugImplementation(Dependencies.AndroidX.Compose.uiTooling)
     debugImplementation(Dependencies.AndroidX.Compose.testManifest)
-
-    implementation(Dependencies.Network.gson)
-    implementation(Dependencies.Network.retrofit)
 
     // test
     testImplementation(Dependencies.junit)

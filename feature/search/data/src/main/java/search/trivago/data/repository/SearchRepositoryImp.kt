@@ -1,7 +1,7 @@
 package search.trivago.data.repository
 
 import search.trivago.data.apiService.SearchApiService
-import search.trivago.data.mapper.mapFromModel
+import search.trivago.data.mapper.mapToDomain
 import search.trivago.domain.model.Character
 import search.trivago.domain.repository.SearchRepository
 
@@ -12,7 +12,7 @@ class SearchRepositoryImp(
         return searchApiService.fetchCharacter(
             query = query,
         )?.results?.map {
-            it.mapFromModel()
+            it.mapToDomain()
         }
     }
 }

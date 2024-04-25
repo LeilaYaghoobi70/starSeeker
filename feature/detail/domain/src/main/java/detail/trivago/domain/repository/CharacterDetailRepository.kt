@@ -1,8 +1,13 @@
 package detail.trivago.domain.repository
 
-import detail.trivago.domain.model.Character
-import detail.trivago.domain.model.CharacterDetail
+import detail.trivago.domain.model.Film
+import detail.trivago.domain.model.Planet
+import detail.trivago.domain.model.Species
 
 interface CharacterDetailRepository {
-    suspend fun getCharacterDetail(character: Character): CharacterDetail?
+    suspend fun fetchPlanet(planetUrl: String): Planet
+
+    suspend fun fetchSpecies(urls: List<String>): List<Species>
+
+    suspend fun fetchFilms(urls: List<String>): List<Film>
 }

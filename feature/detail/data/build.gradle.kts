@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "app.trivago.data"
-    compileSdk = 34
+    compileSdk = Config.Version.compileSdk
 
     defaultConfig {
-        minSdk = 24
+        minSdk = Config.Version.minSdk
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = Config.Android.testInstrumentationRunner
         consumerProguardFiles("consumer-rules.pro")
     }
 
@@ -20,7 +20,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
@@ -42,8 +42,7 @@ dependencies {
     implementation(Dependencies.DI.hiltCore)
     kapt(Dependencies.DI.androidCompiler)
 
-
-    //retrofit
+    // retrofit
     implementation(Dependencies.Network.gson)
     implementation(Dependencies.Network.retrofit)
 }

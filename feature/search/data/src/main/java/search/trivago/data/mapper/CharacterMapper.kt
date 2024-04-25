@@ -3,7 +3,7 @@ package search.trivago.data.mapper
 import search.trivago.data.model.CharacterEntity
 import search.trivago.domain.model.Character
 
-fun CharacterEntity.mapFromModel(): Character =
+fun CharacterEntity.mapToDomain(): Character =
     Character(
         name = name,
         birthYear = birthYear,

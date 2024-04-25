@@ -60,11 +60,9 @@ dependencies {
     implementation(project(ProjectLib.searchDomain))
     implementation(project(ProjectLib.searchPresenter))
     implementation(project(ProjectLib.design))
-
     implementation(project(ProjectLib.detailData))
     implementation(project(ProjectLib.detailDomain))
     implementation(project(ProjectLib.detailPresenter))
-
     implementation(project(ProjectLib.network))
 
     implementation(Dependencies.AndroidX.core)

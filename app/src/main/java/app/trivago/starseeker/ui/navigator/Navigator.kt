@@ -36,11 +36,10 @@ fun Navigator(navHostController: NavHostController) {
         ) {
             val viewModel: DetailScreenViewModel = hiltViewModel()
             val character =
-                navHostController.previousBackStackEntry?.arguments?.getParcelable(
+                navHostController.previousBackStackEntry?.savedStateHandle?.get<Character>(
                     DestinationArgs.CHARACTER,
-                    Character::class.java,
-                )
-                    ?: return@composable
+                ) ?: return@composable
+
             CharacterDetailScreen(
                 detailScreenViewModel = viewModel,
                 character = character,
@@ -51,9 +50,9 @@ fun Navigator(navHostController: NavHostController) {
 
 class Actions(private val navHostController: NavHostController) {
     val navigateToDetail: (character: Character) -> Unit = {
-        navHostController.currentBackStackEntry
-            ?.arguments?.putParcelable(DestinationArgs.CHARACTER, it)
-
+        navHostController.currentBackStackEntry?.savedStateHandle?.apply {
+            set(DestinationArgs.CHARACTER, it)
+        }
         navHostController.navigate(Destinations.DETAIL)
     }
 }
