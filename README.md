@@ -36,11 +36,11 @@ Dependency injection is utilized for building the source, with Hilt being the ch
 
 ## Current Status
 
-This project, developed within three working days, requires improvement in UI and implementation of various states. Currently, the project is in version 1.0.0.
+This project, developed within three working days, requires improvement in UI and implementation of various states. Additionally in the future, I plan to incorporate UI testing using Jetpack Compose UI testing frameworks. Currently, the project is in version 1.0.0.
 
 ## Technologies Used
 
-- *Jetpack Libraries:* Utilize ViewModel and StateFlow for managing UI-related data and lifecycle.
+- *Jetpack Libraries:* Utilize ViewModel and StateFlow for managing UI-related data, lifecycle, and interactions within the Model-View-Intent (MVI) architecture pattern.
 - *Hilt:* Employed for dependency injection, ensuring modular and testable code.
 - *Retrofit:* Networking library for making API requests to retrieve Star Wars data.
 - *Gson:* JSON serialization/deserialization library integrated with Retrofit for parsing API responses.
@@ -48,11 +48,13 @@ This project, developed within three working days, requires improvement in UI an
 - *AndroidX Libraries:* Core KTX, Lifecycle Runtime, Activity Compose, Espresso
 - *Testing Frameworks:* JUnit, Mockito-Kotlin, MockK, Coroutines Test
 
+We utilize the Model-View-Intent (MVI) architecture pattern for managing UI state and interactions
+
 ## Getting Started
 
 To run StarSeeker on your device:
 
-1. Clone the repository from https://github.com/your_username/StarSeeker.
+1. Clone the repository from https://github.com/LeilaYaghoobi70/StarSeeker.
 2. Open the project in Android Studio.
 3. Build and run the app on your preferred device or emulator.
 
