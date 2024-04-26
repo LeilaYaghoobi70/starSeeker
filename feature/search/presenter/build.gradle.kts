@@ -49,6 +49,10 @@ dependencies {
     implementation(Dependencies.AndroidX.lifecycle)
     implementation(Dependencies.AndroidX.viewModelLifecycle)
 
+    // coroutine
+    implementation(Dependencies.Coroutines.android)
+    implementation(Dependencies.Coroutines.core)
+
     // compose
     implementation(Dependencies.AndroidX.Compose.activityCompose)
     implementation(platform(Dependencies.AndroidX.Compose.composeBom))
@@ -65,6 +69,9 @@ dependencies {
     androidTestImplementation(Dependencies.AndroidX.espresso)
     androidTestImplementation(Dependencies.AndroidX.Compose.composeBom)
     androidTestImplementation(Dependencies.AndroidX.Compose.junitUiTest)
+    testImplementation(Dependencies.Test.mockitoKotlin)
+    testImplementation(Dependencies.Test.coroutines)
+    testImplementation(Dependencies.Test.mockk)
 
     // hilt
     implementation(Dependencies.DI.hiltCore)

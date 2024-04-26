@@ -37,11 +37,11 @@ class SearchScreenViewModel
                 return
             }
             previewQuery = query
+            searchDebounceJob?.cancel()
             if (query.isEmpty()) {
                 viewModelState.update { state ->
                     state.copy(characters = null)
                 }
-                searchDebounceJob?.cancel()
                 return
             }
             searchCharacters(query = query)
@@ -56,7 +56,6 @@ class SearchScreenViewModel
                         searchStateScreen.copy(showLoading = false)
                     }
                 }
-            searchDebounceJob?.cancel()
             searchDebounceJob =
                 viewModelScope.launch(
                     coroutineExceptionHandler,

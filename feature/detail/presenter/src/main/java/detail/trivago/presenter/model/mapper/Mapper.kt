@@ -1,12 +1,12 @@
 package detail.trivago.presenter.model.mapper
 
 import detail.trivago.presenter.model.Film
-import detail.trivago.presenter.model.Species
+import detail.trivago.presenter.model.Specie
 import detail.trivago.domain.model.Film as DomainFilm
-import detail.trivago.domain.model.Species as DomainSpecies
+import detail.trivago.domain.model.Specie as DomainSpecies
 
 fun DomainSpecies.toPresenter() =
-    Species(
+    Specie(
         name = name,
         language = language,
         homeWorld = homeWorld,

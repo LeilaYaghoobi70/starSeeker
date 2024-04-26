@@ -1,5 +1,3 @@
-const val kotlinAndroid: String = "android"
-
 object Config {
     object Android {
         val namespace = "app.trivago.starseeker"
@@ -96,7 +94,7 @@ object Dependencies {
     }
 
     object NavHostVersion {
-        object Version {
+        private object Version {
             const val nav_version: String = "2.7.7"
         }
 
@@ -105,6 +103,20 @@ object Dependencies {
         const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Version.nav_version}"
         const val navigationCompose =
             "androidx.navigation:navigation-compose:${Version.nav_version}"
+    }
+
+    object Test {
+        private object Version {
+            const val mockitoKotlin = "2.2.0"
+            const val mockk = "1.13.3"
+            const val coroutinesTest = "1.6.2"
+        }
+
+        const val mockitoKotlin =
+            "com.nhaarman.mockitokotlin2:mockito-kotlin:${Version.mockitoKotlin}"
+        const val mockk = "io.mockk:mockk:${Version.mockk}"
+        const val coroutines =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Version.coroutinesTest}"
     }
 }
 

@@ -5,7 +5,7 @@ import detail.trivago.data.model.PlanetRemote
 import detail.trivago.data.model.SpecieRemote
 import detail.trivago.domain.model.Film
 import detail.trivago.domain.model.Planet
-import detail.trivago.domain.model.Species
+import detail.trivago.domain.model.Specie
 
 fun FilmRemote.toDomain() =
     Film(
@@ -20,7 +20,7 @@ fun PlanetRemote.toDomain() =
     )
 
 fun SpecieRemote.toDomain() =
-    Species(
+    Specie(
         name = name,
         language = language,
         homeWorld = homeWorld,

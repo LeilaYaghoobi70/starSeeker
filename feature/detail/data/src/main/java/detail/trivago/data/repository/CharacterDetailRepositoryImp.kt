@@ -4,7 +4,7 @@ import detail.trivago.data.apiService.DetailApiService
 import detail.trivago.data.model.mapper.toDomain
 import detail.trivago.domain.model.Film
 import detail.trivago.domain.model.Planet
-import detail.trivago.domain.model.Species
+import detail.trivago.domain.model.Specie
 import detail.trivago.domain.repository.CharacterDetailRepository
 
 class CharacterDetailRepositoryImp(
@@ -12,7 +12,7 @@ class CharacterDetailRepositoryImp(
 ) : CharacterDetailRepository {
     override suspend fun fetchPlanet(planetUrl: String): Planet = detailApiService.fetchPlanet(planetUrl).toDomain()
 
-    override suspend fun fetchSpecies(urls: List<String>): List<Species> {
+    override suspend fun fetchSpecies(urls: List<String>): List<Specie> {
         val specieDetails = fetchSpecieDetails(urls = urls)
         val specieMap: Map<String, String?> =
             urls.associateWith { url ->

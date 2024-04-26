@@ -1,6 +1,6 @@
-package detail.trivago.domain.model
+package detail.trivago.presenter.model
 
-data class Species(
+data class Specie(
     val name: String,
     val language: String,
     val homeWorld: String?,

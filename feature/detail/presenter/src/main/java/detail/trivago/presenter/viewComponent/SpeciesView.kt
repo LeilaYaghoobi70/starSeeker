@@ -11,7 +11,7 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import app.trivago.design.theme.HintColor
 import app.trivago.presenter.R
-import detail.trivago.presenter.model.Species
+import detail.trivago.presenter.model.Specie
 import app.trivago.design.R as designR
 
 @Composable
@@ -23,7 +23,7 @@ fun SpeciesView(
                 color = HintColor,
                 shape = RoundedCornerShape(dimensionResource(id = designR.dimen.radius_small)),
             ),
-    species: List<Species>,
+    species: List<Specie>,
 ) {
     LazyRow(
         modifier = modifier,

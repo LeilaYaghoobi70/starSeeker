@@ -8,7 +8,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import app.trivago.starseeker.mapper.searchToDetail
+import app.trivago.starseeker.mapper.mapToDetail
 import detail.trivago.presenter.model.Character
 import detail.trivago.presenter.viewComponent.CharacterDetailScreen
 import detail.trivago.presenter.viewmodel.DetailScreenViewModel
@@ -26,7 +26,7 @@ fun Navigator(navHostController: NavHostController) {
             SearchScreen(
                 navigateToDetail = {
                     actions.navigateToDetail(
-                        it.searchToDetail(),
+                        it.mapToDetail(),
                     )
                 },
             )

@@ -64,6 +64,9 @@ dependencies {
     androidTestImplementation(Dependencies.AndroidX.espresso)
     androidTestImplementation(Dependencies.AndroidX.Compose.composeBom)
     androidTestImplementation(Dependencies.AndroidX.Compose.junitUiTest)
+    testImplementation(Dependencies.Test.mockitoKotlin)
+    testImplementation(Dependencies.Test.coroutines)
+    testImplementation(Dependencies.Test.mockk)
 
     // hilt
     implementation(Dependencies.DI.hiltCore)

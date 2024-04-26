@@ -3,7 +3,7 @@ package app.trivago.starseeker.mapper
 import search.trivago.presenter.model.Character
 import detail.trivago.presenter.model.Character as DetailCharacter
 
-fun Character.searchToDetail() =
+fun Character.mapToDetail() =
     DetailCharacter(
         name = this.name,
         birthYear = this.birthYear,

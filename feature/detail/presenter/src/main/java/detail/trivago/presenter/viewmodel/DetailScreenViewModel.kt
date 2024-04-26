@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import detail.trivago.domain.model.Film
 import detail.trivago.domain.model.Planet
-import detail.trivago.domain.model.Species
+import detail.trivago.domain.model.Specie
 import detail.trivago.domain.usecase.FetchFilmUseCase
 import detail.trivago.domain.usecase.FetchPlanetUseCase
 import detail.trivago.domain.usecase.FetchSpeciesUseCase
@@ -58,7 +58,7 @@ class DetailScreenViewModel
                                 characterName = character.name,
                                 birthYear = character.birthYear,
                                 height = character.height,
-                                species = (species as List<Species>).map { it.toPresenter() },
+                                species = (species as List<Specie>).map { it.toPresenter() },
                                 population = (planet as Planet).population,
                                 films = (films as List<Film>).map { it.toPresenter() },
                             ),
